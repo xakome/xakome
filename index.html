@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLAP365 - El eco de tus sueños</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #F5F2E9;
+      color: #006847;
+    }
+    header {
+      background-color: #006847;
+      color: #F5F2E9;
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+    }
+    header .logo {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      background-color: #F5F2E9;
+      border-radius: 50%;
+    }
+    .slogan {
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+    .tours {
+      display: flex;
+      overflow-x: auto;
+      padding: 1rem;
+      gap: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+    .tour-card {
+      flex: 0 0 auto;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 300px;
+      scroll-snap-align: start;
+    }
+    .tour-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .tour-card .content {
+      padding: 1rem;
+    }
+    .tour-card a {
+      color: #006847;
+      text-decoration: underline;
+    }
+    .video-section, .actions {
+      text-align: center;
+      margin: 2rem;
+    }
+    .actions button {
+      background-color: #006847;
+      color: #F5F2E9;
+      border: none;
+      padding: 1rem 2rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #006847;
+      color: #F5F2E9;
+      text-align: center;
+      padding: 1rem;
+    }
+    .socials a {
+      color: #F5F2E9;
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      .tour-card {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"></div>
+    <h1>CLAP365</h1>
+    <div class="slogan">El eco de tus sueños</div>
+  </header>  <section class="tours">
+    <div class="tour-card">
+      <img src="chichen.jpg" alt="Chichén Itzá">
+      <div class="content">
+        <h3>Chichén Itzá</h3>
+        <p>Descubre una de las siete maravillas del mundo moderno.</p>
+        <a href="chichen.html">Ver más</a>
+      </div>
+    </div>
+    <div class="tour-card">
+      <img src="uxmal.jpg" alt="Uxmal">
+      <div class="content">
+        <h3>Uxmal</h3>
+        <p>Explora la arquitectura Puuc en su máximo esplendor.</p>
+        <a href="uxmal.html">Ver más</a>
+      </div>
+    </div>
+    <div class="tour-card">
+      <img src="izamal.jpg" alt="Izamal">
+      <div class="content">
+        <h3>Izamal</h3>
+        <p>La ciudad amarilla que mezcla cultura maya y colonial.</p>
+        <a href="izamal.html">Ver más</a>
+      </div>
+    </div>
+    <div class="tour-card">
+      <img src="sisal.jpg" alt="Sisal">
+      <div class="content">
+        <h3>Sisal</h3>
+        <p>Relájate entre manglares, flamencos y playas tranquilas.</p>
+        <a href="sisal.html">Ver más</a>
+      </div>
+    </div>
+    <div class="tour-card">
+      <img src="merida.jpg" alt="Mérida">
+      <div class="content">
+        <h3>Mérida</h3>
+        <p>Camina entre historia, arte y sabor en la capital yucateca.</p>
+        <a href="merida.html">Ver más</a>
+      </div>
+    </div>
+    <div class="tour-card">
+      <img src="telchac.jpg" alt="Telchac">
+      <div class="content">
+        <h3>Telchac</h3>
+        <p>Sol, mar, salinas rosas y sabores del mar en Telchac.</p>
+        <a href="telchac.html">Ver más</a>
+      </div>
+    </div>
+  </section>  <section class="video-section">
+    <h2>Conoce la experiencia CLAP365</h2>
+    <video controls width="80%">
+      <source src="video.mp4" type="video/mp4">
+      Tu navegador no soporta la reproducción de video.
+    </video>
+  </section>  <section class="actions">
+    <button onclick="location.href='reserva.html'">Reservar</button>
+    <button onclick="location.href='https://www.paypal.com/pay'">Pagar</button>
+  </section>  <footer>
+    <div class="socials">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">WhatsApp</a>
+    </div>
+    <p>&copy; 2025 CLAP365. Todos los derechos reservados.</p>
+  </footer>
+</body>
+  </html>
