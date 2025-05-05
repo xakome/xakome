@@ -6,15 +6,15 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #F5F2E9;
-      color: #006847;
+      color: #084d37;
     }
     header {
-      background-color: #006847;
+      background-color: #084d37;
       color: #F5F2E9;
       text-align: center;
-      padding: 1rem;
+      padding: 1.5rem;
       position: relative;
     }
     header .logo {
@@ -22,72 +22,99 @@
       left: 1rem;
       top: 50%;
       transform: translateY(-50%);
-      width: 30px;
-      height: 30px;
+      width: 35px;
+      height: 35px;
       background-color: #F5F2E9;
       border-radius: 50%;
     }
     .slogan {
       font-style: italic;
       margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .video-section {
+      text-align: center;
+      margin: 2rem;
+    }
+    .video-section h2 {
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
     }
     .tours {
-      display: flex;
-      overflow-x: auto;
-      padding: 1rem;
-      gap: 1rem;
-      scroll-snap-type: x mandatory;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
     }
     .tour-card {
-      flex: 0 0 auto;
       background-color: white;
       border: 1px solid #ccc;
-      border-radius: 10px;
-      width: 300px;
-      scroll-snap-align: start;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .tour-card:hover {
+      transform: translateY(-5px);
     }
     .tour-card img {
       width: 100%;
-      height: 180px;
+      height: 160px;
       object-fit: cover;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
     }
     .tour-card .content {
       padding: 1rem;
     }
-    .tour-card a {
-      color: #006847;
-      text-decoration: underline;
+    .tour-card h3 {
+      margin-top: 0;
+      color: #084d37;
     }
-    .video-section, .actions {
+    .tour-card p {
+      font-size: 0.95rem;
+    }
+    .tour-card a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #084d37;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .actions {
       text-align: center;
       margin: 2rem;
     }
     .actions button {
-      background-color: #006847;
+      background-color: #084d37;
       color: #F5F2E9;
       border: none;
       padding: 1rem 2rem;
       margin: 0.5rem;
       font-size: 1rem;
-      border-radius: 5px;
+      border-radius: 30px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .actions button:hover {
+      background-color: #0c6046;
     }
     footer {
-      background-color: #006847;
+      background-color: #084d37;
       color: #F5F2E9;
       text-align: center;
-      padding: 1rem;
+      padding: 1.5rem 1rem;
     }
     .socials a {
       color: #F5F2E9;
-      margin: 0 0.5rem;
+      margin: 0 0.7rem;
       text-decoration: none;
+      font-size: 1.2rem;
     }
     @media (max-width: 768px) {
-      .tour-card {
+      .actions button {
         width: 80%;
+        margin-bottom: 1rem;
       }
     }
   </style>
@@ -97,7 +124,13 @@
     <div class="logo"></div>
     <h1>CLAP365</h1>
     <div class="slogan">El eco de tus sueños</div>
-  </header>  <section class="tours">
+  </header>  <section class="video-section">
+    <h2>Conoce la experiencia CLAP365</h2>
+    <video controls width="90%">
+      <source src="video.mp4" type="video/mp4">
+      Tu navegador no soporta la reproducción de video.
+    </video>
+  </section>  <section class="tours">
     <div class="tour-card">
       <img src="chichen.jpg" alt="Chichén Itzá">
       <div class="content">
@@ -146,12 +179,6 @@
         <a href="telchac.html">Ver más</a>
       </div>
     </div>
-  </section>  <section class="video-section">
-    <h2>Conoce la experiencia CLAP365</h2>
-    <video controls width="80%">
-      <source src="video.mp4" type="video/mp4">
-      Tu navegador no soporta la reproducción de video.
-    </video>
   </section>  <section class="actions">
     <button onclick="location.href='reserva.html'">Reservar</button>
     <button onclick="location.href='https://www.paypal.com/pay'">Pagar</button>
@@ -164,4 +191,4 @@
     <p>&copy; 2025 CLAP365. Todos los derechos reservados.</p>
   </footer>
 </body>
-  </html>
+        </html>
