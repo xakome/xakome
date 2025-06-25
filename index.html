@@ -1,194 +1,523 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLAP365 - El eco de tus sueños</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CLAP365 - Tours VIP Exclusivos</title>
+  
+  <!-- Tipografías elegantes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans&display=swap" rel="stylesheet" />
+  
   <style>
+    :root {
+      --verde-oscuro: #004f35;
+      --verde: #006847;
+      --champagne: #c5a880;
+      --beige: #f5f2e9;
+      --blanco: #fff;
+      --gris-claro: #ddd;
+      --gris-medio: #666;
+    }
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #F5F2E9;
-      color: #084d37;
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--beige);
+      color: var(--verde-oscuro);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    header {
-      background-color: #084d37;
-      color: #F5F2E9;
-      text-align: center;
-      padding: 1.5rem;
-      position: relative;
-    }
-    header .logo {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 35px;
-      height: 35px;
-      background-color: #F5F2E9;
-      border-radius: 50%;
-    }
-    .slogan {
-      font-style: italic;
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-    }
-    .video-section {
-      text-align: center;
-      margin: 2rem;
-    }
-    .video-section h2 {
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
-    }
-    .tours {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .tour-card {
-      background-color: white;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-    .tour-card:hover {
-      transform: translateY(-5px);
-    }
-    .tour-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
-    .tour-card .content {
-      padding: 1rem;
-    }
-    .tour-card h3 {
-      margin-top: 0;
-      color: #084d37;
-    }
-    .tour-card p {
-      font-size: 0.95rem;
-    }
-    .tour-card a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: #084d37;
+    a {
       text-decoration: none;
-      font-weight: bold;
+      color: var(--verde);
+      font-weight: 600;
+      transition: color 0.3s ease;
     }
-    .actions {
-      text-align: center;
-      margin: 2rem;
+    a:hover {
+      color: var(--verde-oscuro);
     }
-    .actions button {
-      background-color: #084d37;
-      color: #F5F2E9;
-      border: none;
+
+    /* HEADER */
+    header {
+      background-color: var(--verde);
+      color: var(--blanco);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 1rem 2rem;
-      margin: 0.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .logo img {
+      height: 48px;
+      width: 48px;
+      border-radius: 8px;
+      object-fit: contain;
+      background: var(--champagne);
+      padding: 4px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.2);
+    }
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      line-height: 1.1;
+    }
+    .logo-text small {
+      display: block;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--champagne);
+      margin-top: -4px;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      font-weight: 700;
       font-size: 1rem;
-      border-radius: 30px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    select#lang-select {
+      padding: 0.3rem 0.5rem;
+      border-radius: 6px;
+      border: none;
+      font-weight: 600;
       cursor: pointer;
+      background-color: var(--champagne);
+      color: var(--verde-oscuro);
+      font-size: 0.9rem;
+    }
+
+    /* HERO */
+    .hero {
+      background-image: url('./img/hero.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--blanco);
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      padding: 0 1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* VIDEO CENTRAL */
+    .video-container {
+      width: 90%;
+      max-width: 720px;
+      margin: 0 auto 3rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    iframe {
+      width: 100%;
+      height: 405px;
+      border: none;
+      display: block;
+    }
+
+    /* TOUR CARDS */
+    .tour-cards {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding: 0 2rem 3rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--champagne) transparent;
+    }
+    .tour-cards::-webkit-scrollbar {
+      height: 8px;
+    }
+    .tour-cards::-webkit-scrollbar-thumb {
+      background-color: var(--champagne);
+      border-radius: 4px;
+    }
+    .card {
+      min-width: 220px;
+      background: var(--blanco);
+      border-radius: 18px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-bottom: 2px solid var(--champagne);
+    }
+    .card-content {
+      padding: 1rem 1rem 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin: 0 0 0.5rem 0;
+      color: var(--verde-oscuro);
+    }
+    .card p {
+      flex-grow: 1;
+      font-size: 0.95rem;
+      color: var(--gris-medio);
+      margin: 0 0 1rem 0;
+      line-height: 1.3;
+    }
+    .card a {
+      align-self: flex-start;
+      padding: 0.4rem 1rem;
+      border-radius: 25px;
+      background: var(--champagne);
+      color: var(--verde-oscuro);
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 3px 7px rgba(0,0,0,0.12);
       transition: background-color 0.3s ease;
     }
-    .actions button:hover {
-      background-color: #0c6046;
+    .card a:hover {
+      background-color: var(--verde);
+      color: var(--blanco);
     }
+
+    /* RESERVA DESPLEGABLE */
+    .reserva-container {
+      max-width: 460px;
+      margin: 0 auto 3rem;
+      background: var(--blanco);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      overflow: hidden;
+    }
+    .reserva-header {
+      background-color: var(--verde);
+      color: var(--blanco);
+      padding: 0.7rem 1.5rem;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+    }
+    .reserva-header:hover {
+      background-color: var(--verde-oscuro);
+    }
+    .reserva-form {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      padding: 0 1.5rem;
+      background: var(--beige);
+    }
+    .reserva-form.open {
+      padding: 1.5rem;
+      max-height: 550px;
+    }
+    .reserva-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .reserva-form input,
+    .reserva-form select,
+    .reserva-form textarea {
+      padding: 0.6rem 0.9rem;
+      border-radius: 8px;
+      border: 1.8px solid var(--gris-claro);
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+    }
+    .reserva-form button[type="submit"] {
+      background-color: var(--verde);
+      color: var(--blanco);
+      border: none;
+      border-radius: 25px;
+      padding: 0.8rem 0;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 0.8rem;
+      font-size: 1.1rem;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+    .reserva-form button[type="submit"]:hover {
+      background-color: var(--verde-oscuro);
+    }
+
+    /* BOTONES DE PAGO */
+    .pago-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .pago-buttons a img {
+      height: 36px;
+      cursor: pointer;
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+      transition: transform 0.25s ease;
+      border-radius: 8px;
+      background: var(--blanco);
+      padding: 4px 8px;
+    }
+    .pago-buttons a:hover img {
+      transform: scale(1.05);
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+    }
+
+    /* BOTON WHATSAPP */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+    .whatsapp-float:hover {
+      background-color: #128c43;
+    }
+    .whatsapp-float img {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* FOOTER */
     footer {
-      background-color: #084d37;
-      color: #F5F2E9;
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 1.3rem 0;
+      background-color: var(--champagne);
+      color: var(--verde-oscuro);
+      font-size: 0.9rem;
+      font-family: 'Playfair Display', serif;
+      margin-top: auto;
     }
-    .socials a {
-      color: #F5F2E9;
-      margin: 0 0.7rem;
-      text-decoration: none;
-      font-size: 1.2rem;
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .tour-cards {
+        justify-content: start;
+        padding-left: 1rem;
+      }
     }
-    @media (max-width: 768px) {
-      .actions button {
-        width: 80%;
-        margin-bottom: 1rem;
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .hero {
+        font-size: 1.9rem;
+        height: 40vh;
+      }
+      .tour-cards {
+        gap: 1rem;
+      }
+      .card {
+        min-width: 180px;
+      }
+      .reserva-container {
+        max-width: 95vw;
+        margin: 0 auto 2rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo"></div>
-    <h1>CLAP365</h1>
-    <div class="slogan">El eco de tus sueños</div>
-  </header>  <section class="video-section">
-    <h2>Conoce la experiencia CLAP365</h2>
-    <video controls width="90%">
-      <source src="video.mp4" type="video/mp4">
-      Tu navegador no soporta la reproducción de video.
-    </video>
-  </section>  <section class="tours">
-    <div class="tour-card">
-      <img src="chichen.jpg" alt="Chichén Itzá">
-      <div class="content">
+
+<header>
+  <div class="logo">
+    <img src="./img/logo.png" alt="Logo CLAP365" />
+    <div class="logo-text">
+      CLAP365
+      <small>El eco de tus sueños</small>
+    </div>
+  </div>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#reserva">Reservas</a>
+    <select id="lang-select" aria-label="Seleccionar idioma" onchange="location = this.value;">
+      <option value="index.html" selected>Español</option>
+      <option value="index_en.html">English</option>
+      <option value="index_it.html">Italiano</option>
+      <option value="index_fr.html">Français</option>
+      <option value="index_de.html">Deutsch</option>
+      <option value="index_ru.html">Русский</option>
+    </select>
+  </nav>
+</header>
+
+<main id="inicio">
+
+  <section class="hero" aria-label="Imagen principal de presentación">
+    Explora Yucatán con Lujo y Confort
+  </section>
+
+  <section class="video-container" aria-label="Video introductorio">
+    <iframe
+      src="https://www.youtube.com/embed/nA9UZF-SZoQ"
+      title="Video de Tours VIP en Yucatán"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+  </section>
+
+  <section class="tour-cards" aria-label="Listado de tours disponibles">
+    <div class="card" tabindex="0">
+      <img src="./img/chichenitza.jpg" alt="Zona arqueológica Chichén Itzá" />
+      <div class="card-content">
         <h3>Chichén Itzá</h3>
-        <p>Descubre una de las siete maravillas del mundo moderno.</p>
-        <a href="chichen.html">Ver más</a>
+        <p>Explora la maravilla del mundo maya en una experiencia VIP inolvidable.</p>
+        <a href="chichenitza.html" aria-label="Ver más sobre tour Chichén Itzá">Ver tour</a>
       </div>
     </div>
-    <div class="tour-card">
-      <img src="uxmal.jpg" alt="Uxmal">
-      <div class="content">
+    <div class="card" tabindex="0">
+      <img src="./img/uxmal.jpg" alt="Zona arqueológica Uxmal" />
+      <div class="card-content">
         <h3>Uxmal</h3>
-        <p>Explora la arquitectura Puuc en su máximo esplendor.</p>
-        <a href="uxmal.html">Ver más</a>
+        <p>Admira la arquitectura Puuc con guía privado y traslados de lujo.</p>
+        <a href="uxmal.html" aria-label="Ver más sobre tour Uxmal">Ver tour</a>
       </div>
     </div>
-    <div class="tour-card">
-      <img src="izamal.jpg" alt="Izamal">
-      <div class="content">
+    <div class="card" tabindex="0">
+      <img src="./img/izamal.jpg" alt="Pueblo mágico Izamal" />
+      <div class="card-content">
         <h3>Izamal</h3>
-        <p>La ciudad amarilla que mezcla cultura maya y colonial.</p>
-        <a href="izamal.html">Ver más</a>
+        <p>Descubre el pueblo mágico amarillo en un recorrido exclusivo.</p>
+        <a href="izamal.html" aria-label="Ver más sobre tour Izamal">Ver tour</a>
       </div>
     </div>
-    <div class="tour-card">
-      <img src="sisal.jpg" alt="Sisal">
-      <div class="content">
+    <div class="card" tabindex="0">
+      <img src="./img/sisal.jpg" alt="Playa Sisal" />
+      <div class="card-content">
         <h3>Sisal</h3>
-        <p>Relájate entre manglares, flamencos y playas tranquilas.</p>
-        <a href="sisal.html">Ver más</a>
+        <p>Relájate en playas vírgenes con atención personalizada.</p>
+        <a href="sisal.html" aria-label="Ver más sobre tour Sisal">Ver tour</a>
       </div>
     </div>
-    <div class="tour-card">
-      <img src="merida.jpg" alt="Mérida">
-      <div class="content">
+    <div class="card" tabindex="0">
+      <img src="./img/merida.jpg" alt="Ciudad de Mérida" />
+      <div class="card-content">
         <h3>Mérida</h3>
-        <p>Camina entre historia, arte y sabor en la capital yucateca.</p>
-        <a href="merida.html">Ver más</a>
+        <p>Sumérgete en la cultura y elegancia de la capital yucateca.</p>
+        <a href="merida.html" aria-label="Ver más sobre tour Mérida">Ver tour</a>
       </div>
     </div>
-    <div class="tour-card">
-      <img src="telchac.jpg" alt="Telchac">
-      <div class="content">
+    <div class="card" tabindex="0">
+      <img src="./img/telchac.jpg" alt="Playa y manglares de Telchac" />
+      <div class="card-content">
         <h3>Telchac</h3>
-        <p>Sol, mar, salinas rosas y sabores del mar en Telchac.</p>
-        <a href="telchac.html">Ver más</a>
+        <p>Vive la tranquilidad costera en un tour privado por Telchac.</p>
+        <a href="telchac.html" aria-label="Ver más sobre tour Telchac">Ver tour</a>
       </div>
     </div>
-  </section>  <section class="actions">
-    <button onclick="location.href='reserva.html'">Reservar</button>
-    <button onclick="location.href='https://www.paypal.com/pay'">Pagar</button>
-  </section>  <footer>
-    <div class="socials">
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="#">WhatsApp</a>
+  </section>
+
+  <section class="reserva-container" id="reserva" aria-label="Formulario de reservas">
+    <div class="reserva-header" tabindex="0" role="button" aria-expanded="false" aria-controls="reserva-form" onclick="toggleReserva()" onkeypress="if(event.key==='Enter' || event.key===' ') toggleReserva()">
+      Reservar ahora
+      <span id="icono-toggle" aria-hidden="true">▼</span>
     </div>
-    <p>&copy; 2025 CLAP365. Todos los derechos reservados.</p>
-  </footer>
+    <div class="reserva-form" id="reserva-form" hidden>
+      <form>
+        <input type="text" placeholder="Nombre completo" required aria-label="Nombre completo" />
+        <input type="email" placeholder="Correo electrónico" required aria-label="Correo electrónico" />
+        <input type="date" required aria-label="Fecha del tour" />
+        <select required aria-label="Selecciona un tour">
+          <option value="" disabled selected>Selecciona un tour</option>
+          <option>Chichén Itzá</option>
+          <option>Uxmal</option>
+          <option>Izamal</option>
+          <option>Sisal</option>
+          <option>Mérida</option>
+          <option>Telchac</option>
+        </select>
+        <textarea placeholder="Comentarios opcionales" rows="3" aria-label="Comentarios adicionales"></textarea>
+        <button type="submit">Enviar Reserva</button>
+      </form>
+
+      <div class="pago-buttons" aria-label="Opciones de pago">
+        <a href="https://www.paypal.com" target="_blank" rel="noopener" aria-label="Pagar con PayPal">
+          <img src="./img/paypal.png" alt="Logo PayPal" />
+        </a>
+        <a href="https://www.mercadopago.com" target="_blank" rel="noopener" aria-label="Pagar con MercadoPago">
+          <img src="./img/mercadopago.png" alt="Logo MercadoPago" />
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- WhatsApp flotante -->
+<a class="whatsapp-float" href="https://wa.me/1234567890" target="_blank" aria-label="Contactar por WhatsApp">
+  <img src="./img/whatsapp-icon.png" alt="WhatsApp" />
+</a>
+
+<footer id="contacto">
+  &copy; 2025 CLAP365 - Todos los derechos reservados.
+</footer>
+
+<script>
+  const reservaHeader = document.querySelector('.reserva-header');
+  const reservaForm = document.getElementById('reserva-form');
+  const iconoToggle = document.getElementById('icono-toggle');
+
+  function toggleReserva() {
+    const isOpen = !reservaForm.hasAttribute('hidden');
+    if (isOpen) {
+      reservaForm.setAttribute('hidden', '');
+      reservaHeader.setAttribute('aria-expanded', 'false');
+      iconoToggle.textContent = '▼';
+    } else {
+      reservaForm.removeAttribute('hidden');
+      reservaHeader.setAttribute('aria-expanded', 'true');
+      iconoToggle.textContent = '▲';
+      reservaForm.scrollIntoView({behavior: 'smooth'});
+    }
+  }
+</script>
+
 </body>
-        </html>
+</html>
+
